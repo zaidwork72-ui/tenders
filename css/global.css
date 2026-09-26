@@ -194,12 +194,30 @@ a {
     font-style: normal;
 }
 
+.primary-header{
+    font-family: var(--font);
+    color: var(--color-text-dark);
+    font-weight: 600;
+    font-style: normal;
+    font-size: 64px;
+    line-height: 130%;
+}
+
 .accent-italic{
     font-family: var(--font);
     font-size: 72px;
     font-weight: 300;
     font-style: italic;
     color: var(--color-text-primary);
+    line-height: 130%;
+}
+
+.primary-italic{
+    font-family: var(--font);
+    font-weight: 300;
+    color: var(--color-text-dark);
+    font-size: 64px;
+    font-style: italic;
     line-height: 130%;
 }
 
@@ -210,6 +228,15 @@ a {
     font-size: 18px;
     line-height: 130%;
     color: var(--color-text-hero-support);
+}
+
+.primary-support{
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 130%;
+    color: var(--color-text-subheading);
 }
 
 .shellNavbar{
@@ -226,3 +253,4 @@ a {
 .shell{
     padding: var(--space-16) var(--space-100);
 }
+

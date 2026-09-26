@@ -23,13 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
 const searchIcon = document.querySelector(".search-bar__icon");
 if (searchIcon) searchIcon.innerHTML = icons.search;
 
-const searchBar = `
-    <div class="top-bar">
-        <div class="country">
-            All Countries
-            <span></span>
-        </div>
+renderList("searchBar", homepageData.searchBar, (item) => `
+    <div class="upSearch">
+        All Countries
+        ${icons[item.downIcon]}
     </div>
-`;
+`);
 
-document.getElementById("searchBar").innerHTML = searchBar;
+renderList("container-cards", homepageData.containerCards, (item)) => `
+    <div>
+        <div>
+            ${item.number}
+    </div>
+`
