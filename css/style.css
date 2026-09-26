@@ -1,0 +1,29 @@
+.hero{
+    background-color: var(--color-bg-footer);
+}
+
+.hero-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-80);
+    gap: var(--space-40);
+}
+
+.hero-container .top-header{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+}
+
+.search-bar{
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-24);
+    border: 1px solid var(--color-border-primary);
+    border-radius: 12px;
+    background-color: var(--color-bg-dark);
+    gap: var(--space-16);
+}
