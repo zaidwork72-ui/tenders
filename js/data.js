@@ -20,8 +20,10 @@ const homepageData = {
     }
   ],
   searchBar: [
-    {downIcon: "blueChevron"},
-    {searchIcon: "searchIcon"},
+    {
+      downIcon: "blueChevron",
+      searchIcon: "searchIcon"
+    },
   ],
   containerCards: [
     {

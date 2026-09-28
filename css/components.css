@@ -369,3 +369,41 @@
     height: 21px;
     object-fit: contain;
 }
+
+
+.upSearch{
+    display: flex;
+    gap: var(--space-16);
+    justify-content: center;
+    align-items: center;
+}
+
+.country{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.country select{
+    display: flex;
+    gap: 40px;
+}
+
+.searchArea{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-8);
+}
+
+.button{
+    display: flex;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding-bottom: var(--space-24);
+    border-bottom: 2px solid var(--color-text-accent);
+}

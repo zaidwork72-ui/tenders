@@ -254,3 +254,23 @@ a {
     padding: var(--space-16) var(--space-100);
 }
 
+.num{
+    font-family: var(--font);
+    color: var(--color-text-muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.cardHeader{
+    font-family: var(--font);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text-card-title);
+}
+
+.cardSubHeader{
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-text-subheading);
+}
