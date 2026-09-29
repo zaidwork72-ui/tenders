@@ -124,5 +124,31 @@ const homepageData = {
       opportunities: "7,850 opportunities",
       arrow: "longArrow",
     },
+  ],
+  trust: [
+    {
+      Image: "assets/trusted-logo/trustedLogo.svg",
+      src: "fedEx",
+    },
+    {
+      Image: "assets/trusted-logo/trustedLogo.svg",
+      src: "fedEx",
+    },
+    {
+      Image: "assets/trusted-logo/trustedLogo.svg",
+      src: "fedEx",
+    },
+    {
+      Image: "assets/trusted-logo/trustedLogo.svg",
+      src: "fedEx",
+    },
+    {
+      Image: "assets/trusted-logo/trustedLogo.svg",
+      src: "fedEx",
+    },
+    {
+      Image: "assets/trusted-logo/trustedLogo.svg",
+      src: "fedEx",
+    },
   ]
 }

@@ -245,3 +245,9 @@ marketTabs.forEach((tab) => {
     });
 
 });
+
+renderList("trust", homepageData.trust,(item) => `
+    <div class = "trust-logo-img">
+        <img src="${item.Image}" alt = "${item.src}">
+    </div>
+`)

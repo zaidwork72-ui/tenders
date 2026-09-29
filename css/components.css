@@ -519,6 +519,11 @@
     background-color: var(--color-border-primary);
 }
 
+.divider-second{
+    height: 1px;
+    background-color: var( --color-border-secondary);
+}
+
 .bottomSearch{
     justify-content: flex-start;
     color: var(--color-text-hero-support);
@@ -702,4 +707,15 @@
     justify-content: center;
     align-items: center;
     padding-top: 1px;
+}
+
+.trust-logo-img{
+    grid-column: span 2;
+    display: flex;
+    padding: var(--space-16);
+    justify-content: center;
+    background-color: var(--color-bg-light);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 0 6px 0 rgba(0, 0, 0, 0.02);
+    border: 1px solid var( --color-border-secondary);
+    border-radius: 8px;
 }
