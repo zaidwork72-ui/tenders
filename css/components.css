@@ -374,19 +374,115 @@
 .upSearch{
     display: flex;
     gap: var(--space-16);
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    position: relative;
+    overflow: visible;
+    width: 100%;
 }
 
-.country{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.country-dropdown {
+    position: relative;
+    width: 180px;
+    flex-shrink: 0;
+    z-index: 100;
 }
 
-.country select{
+.country-dropdown__trigger {
+    width: 100%;
     display: flex;
-    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--primary-text);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+}
+
+.country-dropdown__value{
+    color: var(--color-text-hero-search);
+    font-size: 16px;
+    font-family: var(--font);
+    font-weight: 400;
+}
+
+.country-dropdown__trigger svg {
+    transition: transform 0.2s ease;
+}
+
+.country-dropdown.is-open
+.country-dropdown__trigger svg {
+    transform: rotate(180deg);
+}
+
+.country-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid #E2E6EF;
+    border-radius: 8px;
+    box-shadow:
+        0 8px 24px rgba(9, 30, 66, 0.12);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.country-dropdown.is-open .country-dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.country-dropdown__option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var();
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.country-dropdown__option:hover {
+    background: #EDF2FF;
+    color: #2B62F5;
+}
+
+.country-dropdown__option.active {
+    background: #EDF2FF;
+    color: #2B62F5;
+}
+
+.line{
+    height: 28px;
+    width: 2px;
+    background-color: var(--color-border-primary);
+    padding: 0;
+    margin: 0;
 }
 
 .searchArea{
@@ -394,9 +490,41 @@
     align-items: center;
     justify-content: flex-start;
     gap: var(--space-8);
+    min-width: 0;
+    flex: 1;
 }
 
+.searchArea input{
+    width: 100%;
+    min-width: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+        color: var(--color-text-hero-search);
+}
+
+.searchArea input::placeholder{
+    color: var(--color-text-hero-search);
+}
+
+
 .button{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.divider{
+    height: 1px;
+    background-color: var(--color-border-primary);
+}
+
+.bottomSearch{
+    justify-content: flex-start;
+    color: var(--color-text-hero-support);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 300;
     display: flex;
 }
 
@@ -405,5 +533,173 @@
     flex-direction: column;
     gap: var(--space-16);
     padding-bottom: var(--space-24);
-    border-bottom: 2px solid var(--color-text-accent);
+    border-bottom: 2px solid transparent;
+    animation: stepHighlight 12s ease-in-out infinite;
+}
+
+@keyframes stepHighlight{
+    0% {
+        border-bottom-color: var(--color-bg-soft);
+    }
+
+    20% {
+        border-bottom-color: var(--color-text-accent);
+    }
+
+    25% {
+        border-bottom-color: var(--color-text-accent);
+    }
+
+    45% {
+        border-bottom-color: var(--color-bg-soft);
+    }
+
+    100% {
+        border-bottom-color: var(--color-bg-soft);
+    }
+}
+
+/* Card 1 */
+.card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+/* Card 2 */
+.card:nth-child(2) {
+    animation-delay: 3s;
+}
+
+/* Card 3 */
+.card:nth-child(3) {
+    animation-delay: 6s;
+}
+
+/* Card 4 */
+.card:nth-child(4) {
+    animation-delay: 9s;
+}
+
+.stat-card{
+    padding: var(--space-24);
+    text-align: center;
+    gap: var(--space-16);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--space-8);
+    background-color: var(--color-bg-light);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08),
+        0 0 6px 0 rgba(0, 0, 0, 0.02);
+}
+
+.why-inner-card{
+    padding: var(--space-24);
+    gap: var(--space-24);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--space-8);
+    border: 1px solid #E7EEFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 0 4px 0 rgba(0, 0, 0, 0.04);
+}
+
+.why-inner-card .text{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.card-icon{
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.market-grid-card{
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-16);
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    gap: var(--space-16);
+    cursor: pointer;
+}
+
+.market-grid-card .market-img{
+    background-color: var(--img-bg);
+    justify-content: center;
+    display: flex;
+    border-radius: var(--space-6) var(--space-6) 0 0;
+    padding: 5px;
+}
+
+.country-name{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    justify-content: center;
+}
+
+.country-name .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info .countryName{
+    color: var(--color-text-card-title);
+    font-size: 18px;
+    font-family: var(--font);
+    font-weight: 600;
+}
+
+.info .opportunities{
+    color: var(--color-text-subheading);
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font);
+}
+
+.country-name .explore{
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    color: var(--color-text-accent);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.market-grid-card--view-all {
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: default;
+}
+
+.market-grid-card--view-all .explore {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    color: var(--color-text-accent);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 500;
+}
+
+.explore:hover svg{
+    transition: transform 0.25s ease;
+    transform: translateX(6px);
+}
+
+.explore svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1px;
 }

@@ -67,6 +67,8 @@ a {
     --color-border-secondary: #C9C9C9;
     --color-border-accent: #D7D7D7;
 
+    --img-bg: #F4F4F4;
+
     --gradient-primary: linear-gradient(
         90deg,
         #2B62F5 30%,
@@ -123,6 +125,7 @@ a {
 
     --space-100: 100px;
     --space-104: 104px;
+    --section-gap: 104px
 }  
 
 .primary-btn {
@@ -251,7 +254,12 @@ a {
 }
 
 .shell{
-    padding: var(--space-16) var(--space-100);
+    padding: 0 var(--space-100);
+}
+
+.shellSecond{
+    padding: 0 var(--space-100);
+    background-color: var(--color-bg-soft);
 }
 
 .num{
@@ -273,4 +281,18 @@ a {
     font-size: 16px;
     font-weight: 400;
     color: var(--color-text-subheading);
+}
+
+.statNum{
+    color: var(--color-text-card-title);
+    font-size: 32px;
+    font-weight: 600;
+    font-family: var(--font);
+}
+
+.statTitle{
+    color: var(--color-text-subheading);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--font);
 }

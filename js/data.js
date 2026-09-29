@@ -46,5 +46,83 @@ const homepageData = {
         header: "Access when ready",
         subheader: "Use 1 credit to access the full tender."
     }
+  ],
+  stats: [
+    { number: "240", title: "Countries" },
+    { number: "1M", title: "Government purchasers" },
+    { number: "70K+", title: "Tenders & RFPs added daily" },
+    { number: "Every 4 hrs", title: "Data updates" }
+  ],
+  whyCards: [
+    {
+      icon: "fresh", 
+      header: "Fresh opportunities",
+      subheader: "New tenders from procurement sources worldwide."
+    },
+    {
+      icon: "evaluate",
+      header: "Evaluate before you pay",
+      subheader: "Preview key details before spending a credit."
+    },
+    {
+      icon: "pay",
+      header: "Pay when you're ready",
+      subheader: "Use 1 credit to access the full tender when ready.",
+    },
+    {
+      icon: "built",
+      header: "Built for action",
+      subheader: "Save, track, download and share tenders with ease.",
+    },
+  ],
+  marketCard: [
+    {
+      Image: "assets/images/map.svg",
+      country: "Europe",
+      opportunities: "97,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "Asia",
+      opportunities: "85,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "Middle East",
+      opportunities: "87,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "North America",
+      opportunities: "50,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "Oceania",
+      opportunities: "67,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "Africa",
+      opportunities: "25,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "Latin America",
+      opportunities: "7,850 opportunities",
+      arrow: "longArrow",
+    },
+    {
+      Image: "assets/images/map.svg",
+      country: "Latin America",
+      opportunities: "7,850 opportunities",
+      arrow: "longArrow",
+    },
   ]
 }
