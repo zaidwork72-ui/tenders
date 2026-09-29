@@ -18,6 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (footer && typeof renderFooter === 'function') {
     footer.innerHTML = renderFooter();
   }
+
+  const navbar = document.querySelector('.navbar');
+  const navToggle = document.querySelector('.nav-toggle');
+
+  if (navbar && navToggle) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!navbar.contains(event.target)) {
+        navbar.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 });
 
 const heroSection = document.querySelector(".hero");

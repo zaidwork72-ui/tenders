@@ -14,6 +14,7 @@ body {
     margin: 0;
     background: var(--color-bg-light);
     font-family: var(--font);
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -258,12 +259,20 @@ a {
 }
 
 .shell{
-    padding: 0 var(--space-100);
+    padding-left: clamp(18px, 4vw, var(--space-100));
+    padding-right: clamp(18px, 4vw, var(--space-100));
 }
 
 .shellSecond{
-    padding: 0 var(--space-100);
+    padding-left: clamp(18px, 4vw, var(--space-100));
+    padding-right: clamp(18px, 4vw, var(--space-100));
     background-color: var(--color-bg-soft);
+}
+
+.shellNavbar,
+.shellFooter {
+    padding-left: clamp(18px, 4vw, var(--space-100));
+    padding-right: clamp(18px, 4vw, var(--space-100));
 }
 
 .num{
