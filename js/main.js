@@ -161,7 +161,10 @@ document.addEventListener("click", (e) => {
 renderList("container-cards", homepageData.containerCards, (item) => `
     <div class = "card">
         <div class = "num">
-            ${item.number}
+            ${icons[item.icons]}
+            <div class = "fancynum">
+                ${item.number}
+            </div>
         </div>
         <div class = "cardHeader">
             ${item.header}
@@ -171,6 +174,20 @@ renderList("container-cards", homepageData.containerCards, (item) => `
         </div>
     </div>
 `);
+
+const cardsWrap = document.getElementById("cards-wrap");
+const showCards = () => cardsWrap.classList.add("is-visible");
+
+if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+            showCards();
+            obs.disconnect();
+        }
+    }, { threshold: 0.25 }).observe(cardsWrap);
+} else {
+    showCards();
+}
 
 renderList("stats", homepageData.stats, (item) =>
 `
@@ -201,67 +218,90 @@ renderList("whyCards", homepageData.whyCards, (item) => `
     </div>
 `)
 
-renderList("marketCard", homepageData.marketCard, (item, index, array) => `
+function renderMarket(tabKey) {
+  const { items, viewAll } = marketTabData[tabKey];
+  const list = [...items, viewAllItem]; // last item = view all card
+
+  renderList("marketCard", list, (item, index, array) => `
     ${
-        index === array.length - 1
-            ? `
-                <div class="market-grid-card market-grid-card--view-all">
-                    <div class="explore">
-                        View all regions ${icons[item.arrow]}
-                    </div>
-                </div>
-            `
-            : `
-                <div class="market-grid-card">
-                    <div class="market-img">
-                        <img src="${item.Image}" alt="${item.country}">
-                    </div>
-
-                    <div class="country-name">
-                        <div class="info">
-                            <span class="countryName">
-                                ${item.country}
-                            </span>
-
-                            <span class="opportunities">
-                                ${item.opportunities}
-                            </span>
-                        </div>
-
-                        <div class="explore">
-                            Explore ${icons[item.arrow]}
-                        </div>
-                    </div>
-                </div>
-            `
+      index === array.length - 1
+        ? `
+          <div class="market-grid-card market-grid-card--view-all">
+              <div class="explore">
+                  ${viewAll} ${icons[item.arrow]}
+              </div>
+          </div>
+        `
+        : `
+          <div class="market-grid-card">
+              <div class="market-img">
+                  <img src="${item.Image}" alt="${item.country}">
+              </div>
+              <div class="country-name">
+                  <div class="info">
+                      <span class="countryName">${item.country}</span>
+                      <span class="opportunities">${item.opportunities}</span>
+                  </div>
+                  <div class="explore">
+                      Explore ${icons[item.arrow]}
+                  </div>
+              </div>
+          </div>
+        `
     }
-`)
+  `);
 
+  // grid ko halka fade-in dene ke liye
+  const grid = document.getElementById("marketCard");
+  grid.classList.remove("swap");
+  grid.querySelectorAll(".market-grid-card").forEach((card, i) => {
+    card.style.setProperty("--i", i);
+  });
+  void grid.offsetWidth;
+  grid.classList.add("swap");
+}
+
+// ---------- TABS ----------
 const marketTab = document.querySelector(".market-tab");
 const marketTabs = marketTab.querySelectorAll("span");
+const tabKeys = ["regions", "industries", "countries"];
 
-marketTabs.forEach((tab) => {
+// sliding underline (HTML mein kuch add karne ki zaroorat nahi)
+const indicator = document.createElement("i");
+indicator.className = "market-tab-indicator";
+marketTab.appendChild(indicator);
 
-    tab.addEventListener("click", () => {
+function moveIndicator(tab) {
+  indicator.style.width = tab.offsetWidth + "px";
+  indicator.style.transform = `translateX(${tab.offsetLeft}px)`;
+}
 
-        // Active tab change
-        marketTabs.forEach((item) => {
-            item.classList.remove("active");
-        });
+const getActiveTab = () => marketTab.querySelector("span.active");
 
-        tab.classList.add("active");
+// first load: bina animation ke sahi jagah par baithao
+moveIndicator(getActiveTab());
+requestAnimationFrame(() =>
+  requestAnimationFrame(() => indicator.classList.add("ready"))
+);
+document.fonts?.ready.then(() => moveIndicator(getActiveTab()));
+window.addEventListener("resize", () => moveIndicator(getActiveTab()));
 
+marketTabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => {
+    if (tab.classList.contains("active")) return;
 
-        // Whole tab fluctuate
-        marketTab.classList.remove("fluctuate");
+    marketTabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
 
-        // Animation ko restart karne ke liye
-        void marketTab.offsetWidth;
-
-        marketTab.classList.add("fluctuate");
-    });
-
+    moveIndicator(tab);
+    renderMarket(tabKeys[i]);
+  });
 });
+
+renderMarket("regions");
+
+// first load
+renderMarket("regions");
 
 renderList("trust", homepageData.trust,(item) => `
     <div class = "trust-logo-img">

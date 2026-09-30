@@ -27,21 +27,25 @@ const homepageData = {
   ],
   containerCards: [
     {
+        icons: "searchv1",
         number: "01",
         header: "Search and refine",
         subheader: "Find tenders matching your requirements."
     },
     {
+        icons: "priview",
         number: "02",
         header: "Preview and evaluate",
         subheader: "Review key details before spending a credit."
     },
     {
+        icons: "save",
         number: "03",
         header: "Save your search",
         subheader: "Save up to 5 searches and discover relevant tenders from your dashboard."
     },
     {
+        icons: "access",
         number: "04",
         header: "Access when ready",
         subheader: "Use 1 credit to access the full tender."
@@ -75,80 +79,73 @@ const homepageData = {
       subheader: "Save, track, download and share tenders with ease.",
     },
   ],
-  marketCard: [
-    {
-      Image: "assets/images/map.svg",
-      country: "Europe",
-      opportunities: "97,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "Asia",
-      opportunities: "85,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "Middle East",
-      opportunities: "87,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "North America",
-      opportunities: "50,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "Oceania",
-      opportunities: "67,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "Africa",
-      opportunities: "25,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "Latin America",
-      opportunities: "7,850 opportunities",
-      arrow: "longArrow",
-    },
-    {
-      Image: "assets/images/map.svg",
-      country: "Latin America",
-      opportunities: "7,850 opportunities",
-      arrow: "longArrow",
-    },
-  ],
   trust: [
     {
-      Image: "assets/trusted-logo/trustedLogo.svg",
+      Image: "assets/trusted-logo/fedex.svg",
       src: "fedEx",
     },
     {
-      Image: "assets/trusted-logo/trustedLogo.svg",
-      src: "fedEx",
+      Image: "assets/trusted-logo/tata.svg",
+      src: "tata",
     },
     {
-      Image: "assets/trusted-logo/trustedLogo.svg",
-      src: "fedEx",
+      Image: "assets/trusted-logo/levis.svg",
+      src: "levis",
     },
     {
-      Image: "assets/trusted-logo/trustedLogo.svg",
-      src: "fedEx",
+      Image: "assets/trusted-logo/coke.svg",
+      src: "coke",
     },
     {
-      Image: "assets/trusted-logo/trustedLogo.svg",
-      src: "fedEx",
+      Image: "assets/trusted-logo/google.svg",
+      src: "google",
     },
     {
-      Image: "assets/trusted-logo/trustedLogo.svg",
-      src: "fedEx",
+      Image: "assets/trusted-logo/icici.svg",
+      src: "icici",
     },
   ]
 }
+
+
+
+const viewAllItem = { arrow: "longArrow" };
+
+const marketTabData = {
+  regions: {
+    viewAll: "View all regions",
+    items: [
+      { Image: "assets/images/regionmaps/europeHigh.svg", country: "Europe",        opportunities: "97,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/regionmaps/asiaHigh.svg", country: "Asia",          opportunities: "85,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/regionmaps/middleEastHigh.svg", country: "Middle East",   opportunities: "87,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/regionmaps/northAmericaHigh.svg", country: "North America", opportunities: "50,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/regionmaps/oceaniaHigh.svg", country: "Oceania",       opportunities: "67,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/regionmaps/africaHigh.svg", country: "Africa",        opportunities: "25,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/regionmaps/latinAmericaHigh.svg", country: "Latin America", opportunities: "7,850 opportunities",  arrow: "longArrow" },
+    ],
+  },
+  industries: {
+    viewAll: "View all industries",
+    items: [
+      { Image: "assets/images/map.svg", country: "Energy",             opportunities: "97,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/map.svg", country: "Healthcare",         opportunities: "85,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/map.svg", country: "Infrastructure",     opportunities: "87,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/map.svg", country: "Technology",         opportunities: "50,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/map.svg", country: "Agriculture",        opportunities: "67,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/map.svg", country: "Manufacturing",      opportunities: "25,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/map.svg", country: "Financial Services", opportunities: "7,850 opportunities",  arrow: "longArrow" },
+    ],
+  },
+  countries: {
+    viewAll: "View all countries",
+    items: [
+      { Image: "assets/images/countrymaps/india2023High.svg", country: "India",          opportunities: "97,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/countrymaps/usaHigh.svg", country: "United States",  opportunities: "85,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/countrymaps/germanyHigh.svg", country: "Germany",        opportunities: "87,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/countrymaps/uaeHigh.svg", country: "UAE",            opportunities: "50,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/countrymaps/japanHigh.svg", country: "Japan",          opportunities: "67,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/countrymaps/australiaHigh.svg", country: "Australia",      opportunities: "25,850 opportunities", arrow: "longArrow" },
+      { Image: "assets/images/countrymaps/brazilHigh.svg", country: "Brazil",         opportunities: "7,850 opportunities",  arrow: "longArrow" },
+    ],
+  },
+};

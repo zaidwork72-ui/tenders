@@ -67,6 +67,7 @@ a {
     --color-border-primary: #091E41;
     --color-border-secondary: #C9C9C9;
     --color-border-accent: #D7D7D7;
+    --color-border-card: #E1EAFF;
 
     --img-bg: #F4F4F4;
 
@@ -96,6 +97,11 @@ a {
         90deg,
         #8A38F5 30%,
         #2B62F5 100%
+    );
+    --gradient-standing: linear-gradient(
+        180deg,
+        #2B62F5 0%,
+        #8A38F5 100%
     );
 
     --font: "IBM Plex Sans", sans-serif;
@@ -135,7 +141,7 @@ a {
     background: var(--color-bg-light);
     border: none;
     border-radius: 4px;
-    padding: var(--space-8) var(--space-16);
+    padding: var(--space-12) var(--space-16);
     cursor: pointer;
     z-index: 0;
     display: flex;
@@ -168,7 +174,7 @@ a {
 .secondary-btn {
     background: var(--gradient-secondary);
     border-radius: 4px;
-    padding: var(--space-8) var(--space-16);
+    padding: var(--space-12) var(--space-16);
     color: var(--color-text-white);
     border: none;
     cursor: pointer;
@@ -187,6 +193,7 @@ a {
     background: var(--gradient-primary);
     border: none;
     transition: background 0.5s ease;
+    color: var(--color-bg-light);
 }
 
 .accent-btn:hover{
@@ -277,7 +284,7 @@ a {
 
 .num{
     font-family: var(--font);
-    color: var(--color-text-muted);
+    color: var(--color-bg-light);
     font-size: 12px;
     font-weight: 600;
 }
