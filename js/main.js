@@ -176,7 +176,37 @@ renderList("container-cards", homepageData.containerCards, (item) => `
 `);
 
 const cardsWrap = document.getElementById("cards-wrap");
-const showCards = () => cardsWrap.classList.add("is-visible");
+const arrows = cardsWrap.querySelector(".flow-arrows");
+const arrowMotion = document.getElementById("arrow-motion");
+const arrowHead = document.getElementById("arrow-head");
+
+const DRAW_TIME = 6000;   // arrow draw hone ka time, ms me
+const HOLD_TIME = 2500;   // last card ke paas rukne ka time, ms me
+const FADE_TIME = 500;    // fade out, ms me
+
+function playArrow(startDelay) {
+    arrows.classList.remove("play", "fade");
+    arrows.style.setProperty("--start", startDelay + "s");
+    void arrows.offsetWidth;                 // animation restart ke liye reflow
+    arrows.classList.add("play");
+    arrowMotion.beginElementAt(startDelay);  // head line ke saath chalta hai
+
+    setTimeout(() => {
+        arrows.classList.add("fade");
+        setTimeout(() => playArrow(0.3), FADE_TIME + 200);
+    }, startDelay * 1000 + DRAW_TIME + HOLD_TIME);
+}
+
+const showCards = () => {
+    cardsWrap.classList.add("is-visible");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        // bina animation ke: head seedha last point par
+        arrowHead.setAttribute("transform", "translate(1028 311) rotate(-38)");
+        arrows.classList.add("play");
+    } else {
+        playArrow(1);                        // cards load hone ke baad 1s wait
+    }
+};
 
 if ("IntersectionObserver" in window) {
     new IntersectionObserver((entries, obs) => {
@@ -188,15 +218,21 @@ if ("IntersectionObserver" in window) {
 } else {
     showCards();
 }
-
 renderList("stats", homepageData.stats, (item) =>
 `
     <div class = "stat-card">
-        <div class = "statNum">
-            ${item.number}
+        <div class =  "stat-left">
+            <div class = "stat-icon">
+                ${icons[item.icons]}
+            </div>
         </div>
-        <div class = "statTitle">
-            ${item.title}
+        <div class = "stat-right">
+            <div class = "statNum">
+                ${item.number}
+            </div>
+            <div class = "statTitle">
+                ${item.title}
+            </div>
         </div>
     </div>
 `       

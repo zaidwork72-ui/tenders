@@ -110,96 +110,94 @@ main{
     position: relative;
 }
 
-/* ---------- Arrows ---------- */
+/* ---------- Arrow ---------- */
 .flow-arrows{
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 0;              /* cards ke peeche */
     pointer-events: none;
+}
+
+.flow-arrows.fade{
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .flow-arrow{
     position: absolute;
-    width: 14.1%;              /* ~175px jab container 1240px ho */
-    aspect-ratio: 1;
-
-    /* left to right soft reveal (mask wrapper par hai, taaki rotate se direction na bigde) */
-    -webkit-mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
-            mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
-    -webkit-mask-size: 250% 100%;
-            mask-size: 250% 100%;
-    -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-    -webkit-mask-position: 100% 0;
-            mask-position: 100% 0;
-}
-
-.flow-arrow img{
-    display: block;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.06;                     /* reference jitna halka */
-    transform: rotate(40deg);          /* upar wala arrow */
+    overflow: visible;
+    --arrow-color: #c9c8c8;
 }
 
-.flow-arrow.flip img{
-    transform: rotate(-40deg) scaleY(-1);   /* neeche wale arrows */
+/* dashed line */
+.flow-arrow .dash{
+    stroke: var(--arrow-color);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 6 4.5;
 }
 
-/* positions */
-.flow-arrow.a1 {
-    left: 22.7%;
-    top: 100%;
-    transform: translate(-50%, -44%);
-}
-
-.flow-arrow.a2 {
-    left: 47.5%;
-    top: 0;
-    transform: translate(-50%, -56.6%);
-}
-
-.flow-arrow.a3 {
-    left: 73.6%;
-    top: 100%;
-    transform: translate(-50%, -44%);
-}
-
-/* ---------- Animation ---------- */
-/* pehle cards hidden, jab section viewport me aaye tab load */
-.cards-wrap:not(.is-visible) .card{
+/* arrowhead (line ke tip ke saath move hota hai) */
+.flow-arrow .head{
     opacity: 0;
 }
-
-@keyframes cardIn{
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
+.flow-arrow .head path{
+    stroke: var(--arrow-color);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
 }
 
-.cards-wrap.is-visible .card{
-    animation: cardIn 0.5s ease-out both;
-}
-.cards-wrap.is-visible .card:nth-child(1){ animation-delay: 0s; }
-.cards-wrap.is-visible .card:nth-child(2){ animation-delay: 0.15s; }
-.cards-wrap.is-visible .card:nth-child(3){ animation-delay: 0.3s; }
-.cards-wrap.is-visible .card:nth-child(4){ animation-delay: 0.45s; }
-
-@keyframes arrowReveal{
-    from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
-    to   { -webkit-mask-position: 0% 0;   mask-position: 0% 0; }
+/* mask path: isse line "draw" hoti hai */
+.flow-arrow .reveal{
+    fill: none;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
 }
 
-.cards-wrap.is-visible .flow-arrow{
-    animation: arrowReveal 0.7s ease-out both;
+/* ---------- Draw animation (JS ".play" class lagata hai) ---------- */
+@keyframes arrowDraw{
+    from { stroke-dashoffset: 1; }
+    to   { stroke-dashoffset: 0; }
 }
-.cards-wrap.is-visible .a1{ animation-delay: 1.0s; }
-.cards-wrap.is-visible .a2{ animation-delay: 1.6s; }
-.cards-wrap.is-visible .a3{ animation-delay: 2.2s; }
+
+@keyframes headShow{
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.flow-arrows.play .reveal{
+    animation: arrowDraw 6s linear both;
+    animation-delay: var(--start, 1s);
+}
+
+.flow-arrows.play .head{
+    animation: headShow 0.01s linear both;
+    animation-delay: var(--start, 1s);
+}
+
+@media (max-width: 900px){
+    .flow-arrows{ display: none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .cards-wrap:not(.is-visible) .card{ opacity: 1; }
+    .cards-wrap.is-visible .card{ animation: none; }
+    .flow-arrows.play .reveal,
+    .flow-arrows.play .head{ animation: none; }
+    .flow-arrow .reveal{ stroke-dashoffset: 0; }
+    .flow-arrow .head{ opacity: 1; }
+}
 
 .stats{
     padding: var(--space-40) var(--space-100);
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(12,1fr);
     gap: var(--space-24);
 }
 

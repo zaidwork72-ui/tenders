@@ -46,18 +46,50 @@
                         From your first search to the tender you're ready to pursue.
                     </div>
                 </div>
-                <div class="cards-wrap" id="cards-wrap">
-                    <div class="flow-arrows" aria-hidden="true">
-                        <div class="flow-arrow a1 flip"><img src="./assets/images/arrow.png" alt=""></div>
-                        <div class="flow-arrow a2"><img src="./assets/images/arrow.png" alt=""></div>
-                        <div class="flow-arrow a3 flip"><img src="./assets/images/arrow.png" alt=""></div>
-                    </div>
-                    <div class="container-cards" id="container-cards"></div>
-                </div>
+<div class="cards-wrap" id="cards-wrap">
+    <div class="flow-arrows" aria-hidden="true">
+        <svg class="flow-arrow" viewBox="34 133 1240 169" preserveAspectRatio="none" fill="none">
+            <defs>
+                <mask id="arrow-mask" maskUnits="userSpaceOnUse" x="34" y="70" width="1240" height="300">
+                    <path class="reveal" pathLength="1" stroke="#fff" stroke-width="10"
+                          d="M208 276 L222 296
+                             C240 322 275 345 312 345 S372 330 396 311
+                             C426 287 520 165 530 146
+                             C550 108 588 90 630 89 S685 105 707 121
+                             C729 137 832 265 854 296
+                             C872 322 907 345 944 345 S1004 330 1028 311"/>
+                </mask>
+            </defs>
+
+            <!-- dashed line -->
+            <g mask="url(#arrow-mask)">
+                <path id="arrow-path" class="dash"
+                      d="M208 276 L222 296
+                         C240 322 275 345 312 345 S372 330 396 311
+                         C426 287 520 165 530 146
+                         C550 108 588 90 630 89 S685 105 707 121
+                         C729 137 832 265 854 296
+                         C872 322 907 345 944 345 S1004 330 1028 311"/>
+            </g>
+
+            <!-- arrowhead: line ke saath chalta hai -->
+            <g class="head" id="arrow-head">
+                <path d="M-10 -9.5 L0 0 L-10 9.5"/>
+                <animateMotion id="arrow-motion" dur="6s" begin="indefinite"
+                               rotate="auto" calcMode="paced" fill="freeze">
+                    <mpath href="#arrow-path"/>
+                </animateMotion>
+            </g>
+        </svg>
+    </div>
+    <div class="container-cards" id="container-cards"></div>
+</div>
             </div>
         </section>
 
-        <section class="stats shellSecond" id="stats"></section>
+        <section class="stats shellSecond" id="stats">
+            
+        </section>
 
         <section class="why-tenders shell">
             <div class="why-tenders-container">

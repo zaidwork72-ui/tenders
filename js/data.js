@@ -52,10 +52,10 @@ const homepageData = {
     }
   ],
   stats: [
-    { number: "240", title: "Countries" },
-    { number: "1M", title: "Government purchasers" },
-    { number: "70K+", title: "Tenders & RFPs added daily" },
-    { number: "Every 4 hrs", title: "Data updates" }
+    { number: "240", title: "Countries", icons: "statWorld" },
+    { number: "1M+", title: "Government purchasers", icons: "statUser" },
+    { number: "70K+", title: "Tenders & RFPs added daily", icons: "statFile" },
+    { number: "Every 4 hours", title: "Data updates", icons: "statHour" }
   ],
   whyCards: [
     {
