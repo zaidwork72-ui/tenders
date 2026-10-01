@@ -75,35 +75,7 @@ if (searchIcon) searchIcon.innerHTML = icons.search;
 
 renderList("searchBar", homepageData.searchBar, (item) => `
     <div class="upSearch">
-        <div class="country-dropdown">
-            <button class="country-dropdown__trigger" type="button">
-                <span class="country-dropdown__value">All Countries</span>
-                ${icons[item.downIcon]}
-            </button>
 
-            <div class="country-dropdown__menu">
-                <button class="country-dropdown__option active" type="button">
-                    All Countries
-                </button>
-
-                <button class="country-dropdown__option" type="button">
-                    America
-                </button>
-
-                <button class="country-dropdown__option" type="button">
-                    Saudi
-                </button>
-
-                <button class="country-dropdown__option" type="button">
-                    Dubai
-                </button>
-
-                <button class="country-dropdown__option" type="button">
-                    Kuwait
-                </button>
-            </div>
-        </div>
-        <div class = "line"></div>
         <div class = "searchArea">
             ${icons[item.searchIcon]}
             <input type = "text" placeholder = "What are you looking for?">
@@ -338,6 +310,22 @@ renderMarket("regions");
 
 // first load
 renderMarket("regions");
+
+
+renderList("bottomCards", homepageData.alertcard, (item, i) => `
+  ${i === 1 ? `<div class="arrow-circle">${icons.whiteChevron}</div>` : ""}
+  <div class="alert-card ${item.type}">
+    <div class="alert-top">
+      ${icons[item.iconHeader]}
+      <span>${item.title}</span>
+    </div>
+    <ul class="alert-bottom">
+      ${item.points.map(p => `
+        <li>${icons[item.iconItem]}<span>${p}</span></li>
+      `).join("")}
+    </ul>
+  </div>
+`)
 
 renderList("trust", homepageData.trust,(item) => `
     <div class = "trust-logo-img">

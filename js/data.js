@@ -1,7 +1,8 @@
 const homepageData = {
     navLinks: [
-        { label: "Tenders", href: "/pages/tenders/tenderlisting.html", hasChevron: true },
+        { label: "Latest tenders", href: "/pages/tenders/tenderlisting.html" },
         { label: "About us", href: "#" },
+        { label: "Pricing", href: "#" },
         { label: "Blogs", href: "#" },
         { label: "Contact us", href: "#" }
     ],
@@ -104,7 +105,33 @@ const homepageData = {
       Image: "assets/trusted-logo/icici.svg",
       src: "icici",
     },
-  ]
+  ],
+alertcard: [
+  {
+    type: "problem",
+    title: "The common problem",
+    iconHeader: "alert",
+    iconItem: "alertCircle",
+    points: [
+      "Recurring fees, even when you don't find relevant tenders.",
+      "Pay before knowing if a tender is worth pursuing.",
+      "Limited flexibility for occasional users.",
+      "Higher commitment when you only need a few tenders."
+    ]
+  },
+  {
+    type: "solution",
+    title: "Tenders and Bids",
+    iconHeader: "greenBulb",          // apne icons object ka naam daalo
+    iconItem: "greenCircle",     // apne icons object ka naam daalo
+    points: [
+      "No subscription or recurring fees.",
+      "Preview key details before paying.",
+      "Use credits only for tenders you choose.",
+      "Greater control over your budget."
+    ]
+  }
+],
 }
 
 

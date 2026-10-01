@@ -138,7 +138,7 @@ a {
 
 .primary-btn {
     position: relative;
-    background: var(--color-bg-light);
+    background: transparent;
     border: none;
     border-radius: 4px;
     padding: var(--space-12) var(--space-16);
@@ -215,7 +215,7 @@ a {
     font-weight: 600;
     font-style: normal;
     font-size: 64px;
-    line-height: 130%;
+    line-height: 1;
 }
 
 .accent-italic{
@@ -233,12 +233,12 @@ a {
     color: var(--color-text-dark);
     font-size: 64px;
     font-style: italic;
-    line-height: 130%;
+    line-height: 1;
 }
 
 .accent-support{
     font-family: var(--font);
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
     font-size: 18px;
     line-height: 130%;
@@ -305,7 +305,7 @@ a {
 
 .statNum{
     color: var(--color-text-card-title);
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     font-family: var(--font);
 }

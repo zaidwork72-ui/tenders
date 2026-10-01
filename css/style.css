@@ -9,6 +9,8 @@ main{
     --hero-glow-x: 70%;
     --hero-glow-y: 30%;
     margin-top: -1px;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-container{
@@ -21,6 +23,8 @@ main{
     gap: var(--space-40);
     position: relative;
     z-index: 2;
+    isolation: isolate;
+    overflow: hidden;
 }
 
 .hero__glow {
@@ -29,6 +33,7 @@ main{
     top: var(--hero-glow-y);
     width: 460px;
     height: 360px;
+    z-index: 0;
     transform: translate(-50%, -50%);
     background:
         radial-gradient(circle at 50% 50%, rgba(157, 55, 252, 0.72), rgba(157, 55, 252, 0.18) 38%, rgba(157, 55, 252, 0.08) 52%, transparent 72%);
@@ -81,6 +86,11 @@ main{
     width: 90%;
     overflow: visible;
     z-index: 3;
+}
+
+.bottom-line{
+    display: flex;
+    gap: var(--space-8);
 }
 
 .how-container{
@@ -195,10 +205,29 @@ main{
 }
 
 .stats{
-    padding: var(--space-40) var(--space-100);
     display: grid;
     grid-template-columns: repeat(12,1fr);
     gap: var(--space-24);
+    padding: 0 !important;
+}
+
+.stat-section{
+    padding: var(--space-40) var(--space-100);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-32);
+}
+
+.bottom-stat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--color-text-card-title);
+    font-weight: 400;
 }
 
 .why-tenders-container{
@@ -318,6 +347,17 @@ main{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-24);
+}
+
+.why-tab{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-40);
+}
+
+.pricing{
+    padding-top: var(--space-104);
+    padding-bottom: var(--space-104);
 }
 
 .pricing-container{
@@ -453,7 +493,7 @@ main{
 }
 
 .trusted-section{
-    padding-top: var(--space-104);
+    padding-top: 0 !important;
     padding-bottom: var(--space-104);
     display: flex;
     flex-direction: column;
