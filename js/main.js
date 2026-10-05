@@ -152,9 +152,9 @@ const arrows = cardsWrap.querySelector(".flow-arrows");
 const arrowMotion = document.getElementById("arrow-motion");
 const arrowHead = document.getElementById("arrow-head");
 
-const DRAW_TIME = 6000;   // arrow draw hone ka time, ms me
-const HOLD_TIME = 2500;   // last card ke paas rukne ka time, ms me
-const FADE_TIME = 500;    // fade out, ms me
+const DRAW_TIME = 6000;   
+const HOLD_TIME = 2500;   
+const FADE_TIME = 500;   
 
 function playArrow(startDelay) {
     arrows.classList.remove("play", "fade");

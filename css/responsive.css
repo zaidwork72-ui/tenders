@@ -31,7 +31,10 @@
     line-height: 1.2;
 }
 
-.accent-support { font-size: clamp(15px, 1.6vw, 18px); }
+.accent-support {
+    font-size: clamp(15px, 1.6vw, 18px);
+    text-align: left;
+}
 
 /* ---------- 3. Fixes for base-CSS issues ---------- */
 .hero {
@@ -106,18 +109,24 @@
     .shellNavbar { padding-top: 12px; padding-bottom: 12px; }
 
     .navbar {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
         gap: 0;
         position: static;
     }
 
-    .brand { order: 1; min-width: 0; }
+    .brand {
+        order: 1;
+        min-width: 0;
+        margin-right: auto;
+    }
     .brand img { width: 140px; height: auto; }
 
     .nav-toggle {
         display: flex;
         order: 2;
-        margin-left: auto;
+        margin-left: 12px;
         width: 40px;
         height: 40px;
         align-items: center;
@@ -266,6 +275,24 @@
     }
 
     .social-row { flex-wrap: wrap; }
+
+    
+.bottom-why-cards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .arrow-circle{
+        rotate: 90deg;
+    }
+
+    .primary-header{
+        font-size: 40px;
+    }
+
+    .primary-italic{
+        font-size: 40px;
+    }
 }
 
 /* ---------- 8. Phones ≤560 ---------- */
@@ -334,17 +361,22 @@
     .shellNavbar { padding-top: 12px; padding-bottom: 12px; }
 
     .navbar {
-        position: static;           /* dropdown shellNavbar ke hisaab se position hoga */
+        position: static;
         flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
         gap: 0;
     }
 
-    .brand { min-width: 0; }
+    .brand {
+        min-width: 0;
+        margin-right: auto;
+    }
     .brand img { width: 140px; height: auto; }
 
     .nav-toggle {
         display: flex;
-        margin-left: auto;
+        margin-left: 12px;
         width: 40px;
         height: 40px;
         align-items: center;
@@ -368,8 +400,8 @@
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
-        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100vw;
         flex-direction: column;
         align-items: stretch;
@@ -377,11 +409,9 @@
         padding: var(--space-8) var(--gutter) var(--space-24);
         background: #fff;
         border-top: 1px solid var(--color-border-accent);
-        box-shadow: 0 16px 32px rgba(9, 30, 65, 0.14);
+        box-shadow: 0 10px 18px rgba(9, 30, 65, 0.08);
         max-height: calc(100vh - 70px);
         overflow-y: auto;
-
-        
     }
 
     .navbar.is-open .navbar__right { display: flex; }

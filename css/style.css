@@ -89,7 +89,16 @@ main{
 
 .bottom-line{
     display: flex;
+    align-items: center;
     gap: var(--space-8);
+}
+
+.bottom-line svg,
+.bottom-stat svg {
+    display: block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
 }
 
 .how-container{
