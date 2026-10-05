@@ -215,7 +215,7 @@ a {
     font-weight: 600;
     font-style: normal;
     font-size: 64px;
-    line-height: 1;
+    line-height: 130%;
 }
 
 .accent-italic{

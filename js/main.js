@@ -75,7 +75,35 @@ if (searchIcon) searchIcon.innerHTML = icons.search;
 
 renderList("searchBar", homepageData.searchBar, (item) => `
     <div class="upSearch">
+                <div class="country-dropdown">
+            <button class="country-dropdown__trigger" type="button">
+                <span class="country-dropdown__value">All Countries</span>
+                ${icons[item.downIcon]}
+            </button>
 
+            <div class="country-dropdown__menu">
+                <button class="country-dropdown__option active" type="button">
+                    All Countries
+                </button>
+
+                <button class="country-dropdown__option" type="button">
+                    America
+                </button>
+
+                <button class="country-dropdown__option" type="button">
+                    Saudi
+                </button>
+
+                <button class="country-dropdown__option" type="button">
+                    Dubai
+                </button>
+
+                <button class="country-dropdown__option" type="button">
+                    Kuwait
+                </button>
+            </div>
+        </div>
+        <div class = "line"></div>
         <div class = "searchArea">
             ${icons[item.searchIcon]}
             <input type = "text" placeholder = "What are you looking for?">

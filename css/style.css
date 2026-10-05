@@ -1,7 +1,12 @@
 main{
-    gap: var(--section-gap);
+    gap: 0;
     display: flex;
     flex-direction: column;
+}
+
+main > section:not(.hero) {
+    padding-top: 52px;
+    padding-bottom: 52px;
 }
 
 .hero {
@@ -248,8 +253,8 @@ main{
     display: flex;
     flex-direction: column;
     gap: var(--space-40);
-    padding-top: var(--space-104);
-    padding-bottom: var(--space-104);
+    /* padding-top: 52px;
+    padding-bottom: 52px; */
 }
 
 .market-card-inner{
@@ -364,8 +369,8 @@ main{
 }
 
 .pricing{
-    padding-top: var(--space-104);
-    padding-bottom: var(--space-104);
+    padding-top: 52px;
+    padding-bottom: 52px;
 }
 
 .pricing-container{
@@ -401,6 +406,18 @@ main{
     font-size: 14px;
     font-weight: 300;
     font-family: var(--font);
+}
+
+.right-pricing{
+    grid-column: span 6;
+    position: relative; 
+    gap: var(--space-32);
+    display: flex;
+    flex-direction: column;
+}
+
+.right-pricing .pricing-btn{
+    display: none;
 }
 
 .pricing-container .right-pricing-text {
