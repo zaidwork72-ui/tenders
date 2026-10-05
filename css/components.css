@@ -840,8 +840,10 @@
     justify-content: center;
 }
 
-.trust-logo-img{
-    grid-column: span 2;
+.trust-logo-img {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: var(--space-24); /* gap nahi, margin: taaki -50% perfectly seamless ho */
     display: flex;
     padding: var(--space-16);
     justify-content: center;

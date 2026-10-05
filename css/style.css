@@ -4,9 +4,10 @@ main{
     flex-direction: column;
 }
 
-main > section:not(.hero) {
-    padding-top: 52px;
-    padding-bottom: 52px;
+main{
+    gap: 104px;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero {
@@ -137,7 +138,7 @@ main > section:not(.hero) {
 .flow-arrows{
     position: absolute;
     inset: 0;
-    z-index: 0;              /* cards ke peeche */
+    z-index: 0;              
     pointer-events: none;
 }
 
@@ -253,8 +254,8 @@ main > section:not(.hero) {
     display: flex;
     flex-direction: column;
     gap: var(--space-40);
-    /* padding-top: 52px;
-    padding-bottom: 52px; */
+    padding-top: 52px;
+    padding-bottom: 52px;
 }
 
 .market-card-inner{
@@ -518,17 +519,37 @@ main > section:not(.hero) {
 }
 
 .trusted-section{
-    padding-top: 0 !important;
-    padding-bottom: var(--space-104);
+    padding-top: calc(var(--section-gap) / 2);
+    padding-bottom: var(--section-gap);
     display: flex;
     flex-direction: column;
     gap: var(--space-40);
 }
 
-.trusted-logo{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--space-24);
+.trusted-logo {
+    overflow: hidden;
+    padding: 8px 0; 
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.trust-track {
+    display: flex;
+    width: max-content;
+    animation: trustScroll var(--marquee-duration, 30s) linear infinite;
+}
+
+.trust-group { display: flex; flex-shrink: 0; }
+
+.trusted-logo:hover .trust-track { animation-play-state: paused; }
+
+@keyframes trustScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); } /* right to left */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trust-track { animation: none; }
 }
 
 .contact {

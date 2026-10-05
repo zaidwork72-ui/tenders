@@ -335,3 +335,15 @@ a {
     line-height: 170%;
     text-transform: none;
 }
+
+
+:root { --section-gap: 104px; }
+
+/* heading ka invisible top space hatao, taaki padding = visible gap */
+.container-up > .primary-header:first-child {
+    text-box: trim-start cap alphabetic;
+}
+/* fallback: purane browsers ke liye */
+@supports not (text-box-trim: trim-start) {
+    .container-up > .primary-header:first-child { margin-top: -0.33em; }
+}

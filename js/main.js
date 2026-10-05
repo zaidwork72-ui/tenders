@@ -187,9 +187,9 @@ const FADE_TIME = 500;
 function playArrow(startDelay) {
     arrows.classList.remove("play", "fade");
     arrows.style.setProperty("--start", startDelay + "s");
-    void arrows.offsetWidth;                 // animation restart ke liye reflow
+    void arrows.offsetWidth;                 
     arrows.classList.add("play");
-    arrowMotion.beginElementAt(startDelay);  // head line ke saath chalta hai
+    arrowMotion.beginElementAt(startDelay);  
 
     setTimeout(() => {
         arrows.classList.add("fade");
@@ -200,11 +200,10 @@ function playArrow(startDelay) {
 const showCards = () => {
     cardsWrap.classList.add("is-visible");
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        // bina animation ke: head seedha last point par
         arrowHead.setAttribute("transform", "translate(1028 311) rotate(-38)");
         arrows.classList.add("play");
     } else {
-        playArrow(1);                        // cards load hone ke baad 1s wait
+        playArrow(1);                      
     }
 };
 
@@ -256,7 +255,7 @@ renderList("whyCards", homepageData.whyCards, (item) => `
 
 function renderMarket(tabKey) {
   const { items, viewAll } = marketTabData[tabKey];
-  const list = [...items, viewAllItem]; // last item = view all card
+  const list = [...items, viewAllItem]; 
 
   renderList("marketCard", list, (item, index, array) => `
     ${
@@ -287,7 +286,6 @@ function renderMarket(tabKey) {
     }
   `);
 
-  // grid ko halka fade-in dene ke liye
   const grid = document.getElementById("marketCard");
   grid.classList.remove("swap");
   grid.querySelectorAll(".market-grid-card").forEach((card, i) => {
@@ -302,7 +300,6 @@ const marketTab = document.querySelector(".market-tab");
 const marketTabs = marketTab.querySelectorAll("span");
 const tabKeys = ["regions", "industries", "countries"];
 
-// sliding underline (HTML mein kuch add karne ki zaroorat nahi)
 const indicator = document.createElement("i");
 indicator.className = "market-tab-indicator";
 marketTab.appendChild(indicator);
@@ -314,7 +311,6 @@ function moveIndicator(tab) {
 
 const getActiveTab = () => marketTab.querySelector("span.active");
 
-// first load: bina animation ke sahi jagah par baithao
 moveIndicator(getActiveTab());
 requestAnimationFrame(() =>
   requestAnimationFrame(() => indicator.classList.add("ready"))
@@ -339,7 +335,6 @@ renderMarket("regions");
 // first load
 renderMarket("regions");
 
-
 renderList("bottomCards", homepageData.alertcard, (item, i) => `
   ${i === 1 ? `<div class="arrow-circle">${icons.whiteChevron}</div>` : ""}
   <div class="alert-card ${item.type}">
@@ -355,8 +350,34 @@ renderList("bottomCards", homepageData.alertcard, (item, i) => `
   </div>
 `)
 
-renderList("trust", homepageData.trust,(item) => `
-    <div class = "trust-logo-img">
-        <img src="${item.Image}" alt = "${item.src}">
-    </div>
-`)
+function renderTrustMarquee() {
+    const root = document.getElementById("trust");
+    if (!root) return;
+
+    const card = (item) => `
+        <div class="trust-logo-img">
+            <img src="${item.Image}" alt="${item.src}">
+        </div>`;
+
+    root.innerHTML = `<div class="trust-track"><div class="trust-group">${homepageData.trust.map(card).join("")}</div></div>`;
+    const track = root.firstElementChild;
+    const group = track.firstElementChild;
+    const single = group.innerHTML;
+
+    const repeat = Math.max(1, Math.ceil(root.offsetWidth / group.scrollWidth));
+    group.innerHTML = single.repeat(repeat);
+
+    const clone = group.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+
+    track.style.setProperty("--marquee-duration", (group.scrollWidth / 60) + "s");
+}
+
+renderTrustMarquee();
+
+let trustResizeTimer;
+window.addEventListener("resize", () => {
+    clearTimeout(trustResizeTimer);
+    trustResizeTimer = setTimeout(renderTrustMarquee, 200);
+});
