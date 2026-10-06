@@ -40,7 +40,7 @@ const icons = {
     linkedin: '<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.299 11.432v6.15h-3.565v-5.738c0-1.442-.516-2.425-1.806-2.425-.985 0-1.572.663-1.829 1.304-.094.23-.118.549-.118.87v5.989H7.414s.048-9.717 0-10.725h3.567v1.52l-.024.035h.024v-.035c.473-.729 1.319-1.771 3.213-1.771 2.346 0 4.105 1.533 4.105 4.826ZM3.684 1.688c-1.22 0-2.018.8-2.018 1.853 0 1.029.776 1.853 1.971 1.853h.024c1.244 0 2.016-.824 2.016-1.853-.021-1.053-.771-1.853-1.992-1.853h-.001ZM1.878 17.582h3.565V6.857H1.878v10.725Z" fill="#E8EAF4"/></svg>',
     youtube: '<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.415 5.783A2.494 2.494 0 0 0 16.875 4.14c-1.48-.4-7.417-.4-7.417-.4s-5.936 0-7.417.4A2.494 2.494 0 0 0 .5 5.783a26.23 26.23 0 0 0 0 8.434 2.494 2.494 0 0 0 1.54 1.642c1.481.4 7.417.4 7.417.4s5.937 0 7.417-.4a2.494 2.494 0 0 0 1.54-1.642c.4-1.4.4-4.517.4-4.517s0-3.117-.4-4.517ZM8.6 13.1V7.9l5.067 2.6L8.6 13.1Z" fill="#E8EAF4"/></svg>',
     instagram: '<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.333 2.667h7.334A3.667 3.667 0 0 1 17.333 6.333v7.334a3.667 3.667 0 0 1-3.666 3.666H6.333A3.667 3.667 0 0 1 2.667 13.667V6.333A3.667 3.667 0 0 1 6.333 2.667Zm0 1.666A2 2 0 0 0 4.333 6.333v7.334a2 2 0 0 0 2 2h7.334a2 2 0 0 0 2-2V6.333a2 2 0 0 0-2-2H6.333Zm8.334 1.5a1.167 1.167 0 1 1 0 2.334 1.167 1.167 0 0 1 0-2.334ZM10 6.833a3.167 3.167 0 1 1 0 6.334 3.167 3.167 0 0 1 0-6.334Zm0 1.667a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" fill="#E8EAF4"/></svg>',
-    menu: '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18M3 18h18M3 6h18" stroke="#000" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    menu: '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18M3 18h18M3 6h18" stroke="#000" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 };
 
 function renderNavbar() {
@@ -116,7 +116,7 @@ function renderFooter() {
       <div class = line><span class = actual-line></span></div>
       <div class="shell footer-bottom">
         <p>Copyright © 2026 TendersAndBids. All Rights Reserved.</p>
-        <p class="footer-secure">Payment secured by: <img src="${rootPath}assets/images/stripe.png" alt="stripe" width="50" height="21"></p>
+        <p class="footer-secure">Payment secured by: <img src="${rootPath}assets/icons/stripe.svg" alt="stripe" width="50" height="21"></p>
       </div>
     </footer>
    </div>
