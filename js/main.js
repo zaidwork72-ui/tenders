@@ -262,6 +262,22 @@ renderList("whyCards", homepageData.whyCards, (item) => `
     </div>
 `)
 
+renderList("technology", homepageData.technology, (item) => `
+    <div class = "why-inner-card">
+        <div class = "card-icon">
+            ${icons[item.icon]}
+        </div>
+        <div class = "text">
+            <div class = "cardHeader">
+                ${item.header}
+            </div>
+            <div class = "cardSubHeader">
+                ${item.subheader}
+            </div>
+        </div>
+    </div>
+`)
+
 function renderMarket(tabKey) {
   const { items, viewAll } = marketTabData[tabKey];
   const list = [...items, viewAllItem]; 

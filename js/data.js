@@ -80,6 +80,23 @@ const homepageData = {
       subheader: "Save, track, download and share tenders with ease.",
     },
   ],
+    technology: [
+    {
+      icon: "fresh", 
+      header: "Progressive Web Application",
+      subheader: "A fast, responsive experience designed to make tender information accessible across devices."
+    },
+    {
+      icon: "evaluate",
+      header: "Apache Solr search",
+      subheader: "Powerful search infrastructure helps refine preferences and surface relevant opportunities faster."
+    },
+    {
+      icon: "pay",
+      header: "Faster delivery with CDN",
+      subheader: "Content delivery infrastructure helps make tender information available quickly, wherever you are.",
+    }
+  ],
   trust: [
     {
       Image: "assets/trusted-logo/fedex.svg",
