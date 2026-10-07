@@ -1,13 +1,7 @@
-main{
-    gap: 0;
+main {
     display: flex;
     flex-direction: column;
-}
-
-main{
     gap: 104px;
-    display: flex;
-    flex-direction: column;
 }
 
 .hero {
@@ -30,6 +24,10 @@ main{
     gap: var(--space-40);
     position: relative;
     z-index: 2;
+}
+
+.left{
+    padding-left: 0;
 }
 
 .hero__glow {
@@ -569,4 +567,118 @@ main{
     align-items: center;
     width: 100%;
     gap: var(--space-48);
+}
+
+/* TENDER LISTING PAGE  */
+.main-search {
+    background-color: var(--color-bg-soft);
+    padding: var(--space-24) 0;
+    border-bottom: 1px solid var(--color-border-card);
+}
+
+.main-search .main-shell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20);
+}
+
+
+.search-input {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border-card);
+    border-radius: 8px;
+    padding: var(--space-12) var(--space-16);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+ 
+.search-input:focus-within {
+    border-color: var(--color-text-accent);
+    box-shadow: 0 0 0 3px rgba(43, 98, 245, 0.12);
+}
+ 
+.search-input svg {
+    flex-shrink: 0;
+}
+ 
+.search-input input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--color-text-card-title);
+}
+ 
+.clear-search {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-6);
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color .15s ease;
+}
+ 
+.clear-search:hover {
+    color: var(--color-text-accent);
+}
+
+.listing-shell{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-100);
+}
+
+.sidebar{
+  align-self:start;
+}
+
+.sidebar-title{
+  font-size:11.5px;
+  letter-spacing:.1em;
+  color: var(--text-faint);
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:16px;
+}
+.top-checkbox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  color: var(--text-dim);
+  padding: var(--space-14);
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-16);
+}
+
+.primary-down{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-24);
+}
+
+.primary-left{
+    grid-column: 6 span;
+    display: flex;
+}
+
+.primary-para{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+}
+
+p{
+    line-height: 1;
 }

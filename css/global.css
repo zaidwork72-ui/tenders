@@ -47,7 +47,7 @@ a {
     text-decoration: none;
 }
 
-:root{
+:root {
     --glow: #3B72F6;
     --color-bg-dark: #080F1E;
     --color-bg-light: #FFFFFF;
@@ -70,7 +70,6 @@ a {
     --color-border-accent: #D7D7D7;
     --color-border-card: #E1EAFF;
 
-
     --color-auth-border: #1E293B;
     --color-auth-secondary-border: #35445B;
     --color-input-bg: #12141D;
@@ -79,43 +78,15 @@ a {
 
     --img-bg: #F4F4F4;
 
-    --gradient-primary: linear-gradient(
-        90deg,
-        #2B62F5 30%,
-        #8A38F5 100%
-    );
-    --gradient-secondary: linear-gradient(
-        90deg,
-        #2B62F5 30%,
-        #8A38F5 100%
-    );
-    --gradient-tertiary: linear-gradient(
-        -121deg,
-        #081F5B 0%,
-        #A05AFC 50%,
-        #081F5B 95%
-    );
-
-    --gradient-primary-hover: linear-gradient(
-        90deg,
-        #8A38F5 30%,
-        #2B62F5 100%
-    );
-    --gradient-secondary-hover: linear-gradient(
-        90deg,
-        #8A38F5 30%,
-        #2B62F5 100%
-    );
-    --gradient-standing: linear-gradient(
-        180deg,
-        #2B62F5 0%,
-        #8A38F5 100%
-    );
+    --gradient-primary: linear-gradient(90deg, #2B62F5 30%, #8A38F5 100%);
+    --gradient-secondary: linear-gradient(90deg, #2B62F5 30%, #8A38F5 100%);
+    --gradient-tertiary: linear-gradient(-121deg, #081F5B 0%, #A05AFC 50%, #081F5B 95%);
+    --gradient-primary-hover: linear-gradient(90deg, #8A38F5 30%, #2B62F5 100%);
+    --gradient-secondary-hover: linear-gradient(90deg, #8A38F5 30%, #2B62F5 100%);
+    --gradient-standing: linear-gradient(180deg, #2B62F5 0%, #8A38F5 100%);
 
     --font: "IBM Plex Sans", sans-serif;
-}
 
-:root {
     --space-2: 2px;
     --space-4: 4px;
     --space-6: 6px;
@@ -138,11 +109,10 @@ a {
     --space-40: 40px;
     --space-48: 48px;
     --space-80: 80px;
-
     --space-100: 100px;
     --space-104: 104px;
-    --section-gap: 104px
-}  
+    --section-gap: 104px;
+}
 
 .primary-btn {
     position: relative;
@@ -207,6 +177,10 @@ a {
 
 .accent-btn:hover{
     background: var(--gradient-primary-hover);
+}
+
+.left-align{
+    text-align: left;
 }
 
 .accent-header{
@@ -343,6 +317,10 @@ a {
     font-weight: 400;
     line-height: 170%;
     text-transform: none;
+}
+
+.tender-page{
+    gap: 0;
 }
 
 /* =========================================================
@@ -654,11 +632,13 @@ a {
 }
 
 .toggle-row {
-  padding: 12px 14px;
+  padding: var(--space-16);
+  gap: var(--space-16);
   margin-top: 0;
   border-radius: 6px;
   border: 1px solid var(--color-auth-secondary-border);
   background-color: transparent;
+  display: flex;
 }
 
 .toggle-label {
@@ -666,6 +646,7 @@ a {
   line-height: 1.45;
   color: var(--color-text-hero-search);
   font-weight: 600;
+  font-family: var(--font);
 }
 
 .toggle-label small {
@@ -674,6 +655,7 @@ a {
   color: var(--color-text-hero-support);
   font-size: 12px;
   font-weight: 400;
+  font-family: var(--font);
 }
 
 .switch {
@@ -728,4 +710,181 @@ a {
 .unique-shell{
     padding-top: 50px !important;
     padding-bottom: 50px !important;
+}
+
+
+.email-digest-options {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 2px;
+    background: #080F1E;
+    border: 1px solid #091E41;
+    border-radius: 5px;
+}
+
+.digest-option {
+    border: 0;
+    background: transparent;
+    color: #69758A;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: var(--font);
+    padding: 4px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.digest-option.is-active {
+    background: #122547;
+    color: #2B62F5;
+}
+
+
+@media (max-width: 768px) {
+  .onboarding-shell {
+    align-items: flex-start;
+  }
+
+  .onboarding-container {
+    width: 100%;
+    max-width: 480px;
+    padding: var(--space-32, 32px);
+    gap: var(--space-24, 24px);
+  }
+
+  /* fit-content ko mobile par full width karo */
+  .first-container {
+    width: 100% !important;
+    max-width: 480px;
+  }
+
+  .unique-shell {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .onboarding-title {
+    font-size: 28px;
+    line-height: 110%;
+  }
+}
+
+/* ---------- Mobile (<= 600px) ---------- */
+@media (max-width: 600px) {
+  /* Ready page: 3 cards ko stack karo */
+  .card-stack {
+    grid-template-columns: 1fr;
+  }
+
+  /* Email digest row: label upar, Daily/Weekly + switch neeche */
+  .toggle-row .email-digest-options {
+    order: 3;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .onboarding-shell {
+    padding: var(--space-16, 16px) var(--space-12, 12px);
+  }
+
+  .onboarding-container {
+    padding: var(--space-24, 24px) var(--space-20, 20px);
+    gap: var(--space-24, 24px);
+    border-radius: 10px;
+  }
+
+  .onboarding-title {
+    font-size: 24px;
+    line-height: 120%;
+  }
+
+  .onboarding-subtitle {
+    font-size: 14px;
+  }
+
+  .onboarding_field input {
+    padding: var(--space-12, 12px) var(--space-12, 12px);
+  }
+
+  .onboarding_field.has-icon input {
+    padding-left: 40px;
+  }
+
+  /* Social buttons: 3 column se 1 column */
+  .onboarding-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-12, 12px);
+  }
+
+  .onboarding-btn {
+    padding: var(--space-12, 12px) var(--space-16, 16px);
+  }
+
+  /* OTP boxes: 6 boxes screen mein fit ho jayein */
+  .onboarding-box {
+    gap: 6px;
+  }
+
+  .onboarding-input {
+    flex: 1 1 0;
+    width: auto !important;
+    min-width: 0;
+    max-width: 52px;
+    height: 48px;
+    padding: 0 !important;
+    font-size: 18px;
+  }
+
+  .toggle-row {
+    padding: var(--space-12, 12px);
+    gap: var(--space-12, 12px);
+  }
+
+  .onboarding-divider span {
+    padding: 0 12px;
+  }
+
+  .step-dot {
+    width: 20px;
+  }
+}
+
+/* ---------- Very small (<= 360px) ---------- */
+@media (max-width: 360px) {
+  .onboarding-container {
+    padding: var(--space-20, 20px) var(--space-16, 16px);
+  }
+
+  .onboarding-title {
+    font-size: 22px;
+  }
+
+  .onboarding-box {
+    gap: 4px;
+  }
+
+  .onboarding-input {
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .digest-option {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+}
+
+/* ---------- Landscape phone (height kam) ---------- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .onboarding-shell {
+    align-items: flex-start;
+  }
+
+  .unique-shell {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
 }

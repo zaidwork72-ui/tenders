@@ -107,3 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+document.querySelectorAll(".email-digest-options").forEach((group) => {
+    const options = group.querySelectorAll(".digest-option");
+
+    options.forEach((option) => {
+        option.addEventListener("click", () => {
+            options.forEach((item) => {
+                item.classList.remove("is-active")
+            });
+            option.classList.add("is-active")
+        })
+    })
+})
