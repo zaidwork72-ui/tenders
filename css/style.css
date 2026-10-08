@@ -736,3 +736,32 @@ p{
     display: grid;
     grid-template-columns:  repeat(3, 1fr) !important;
 }
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-40);
+}
+
+.contact-main-info{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: var(--space-24);
+}
+
+.right-contact{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+}
+
+.right-contact .contact-info{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.contactInfo{
+    font-family: var(--font);
+    color: var();
+}

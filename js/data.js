@@ -4,7 +4,7 @@ const homepageData = {
         { label: "About us", href: "/pages/about.html" },
         { label: "Pricing", href: "#" },
         { label: "Blogs", href: "#" },
-        { label: "Contact us", href: "#" }
+        { label: "Contact us", href: "/pages/contact.html" }
     ],
       footerColumns: [
     {
